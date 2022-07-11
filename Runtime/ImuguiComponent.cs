@@ -10,7 +10,7 @@ namespace imugui.runtime
         private static ImuguiComponent _instance;
         private Imugui _imugui;
 
-        public Transform ImuguiRootGO => _imugui?.ImuguiRoot;
+        public Transform ImuguiRootTrans => _imugui?.ImuguiRoot;
 
         public float WindowWidth => _imugui?.WindowWidth ?? 0f;
         public float WindowHeight => _imugui?.WindowHeight ?? 0f;

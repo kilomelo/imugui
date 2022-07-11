@@ -6,18 +6,17 @@ namespace imugui.runtime
     public class ImuguiBehaviour : MonoBehaviour, IImuguiWindow
     {
         protected static ImuguiComponent Imu => ImuguiComponent.Instance;
-        protected virtual void Awake()
+        private bool _inited;
+        private bool _enabled;
+        protected virtual void Init()
         {
             ImuguiComponent.Instance.AddWindow(this);
-        }
-
-        protected virtual void OnEnable()
-        {
-            ImuguiComponent.Instance.EnableWindow(this);
+            _inited = true;
         }
 
         protected virtual void OnDisable()
         {
+            _enabled = false;
             ImuguiComponent.Instance.DisableWindow(this);
         }
 
@@ -28,6 +27,12 @@ namespace imugui.runtime
 
         protected virtual void Update()
         {
+            if (!_inited) Init();
+            if (!_enabled)
+            {
+                ImuguiComponent.Instance.EnableWindow(this);
+                _enabled = true;
+            }
             ImuguiComponent.Instance.SyncTrans(this, transform);
         }
 
