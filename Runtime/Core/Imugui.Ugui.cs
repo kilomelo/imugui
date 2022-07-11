@@ -234,7 +234,7 @@ namespace imugui.runtime
                 if (null == DrawingView) throw new ImuguiException();
                 if (!DrawLayerStack.Any() || !_windowLayoutStructure.Any()) throw new ImuguiException();
                 CurrentDrawLayer = DrawLayerStack.Pop();
-                _currentLayoutIdx = _windowLayoutStructure[^1];
+                _currentLayoutIdx = _windowLayoutStructure[_windowLayoutStructure.Count - 1];
                 _windowLayoutStructure.RemoveAt(_windowLayoutStructure.Count() - 1);
             }
         }

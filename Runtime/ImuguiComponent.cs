@@ -23,8 +23,8 @@ namespace imugui.runtime
 
         public void AddWindow(IImuguiWindow window)
         {
-            if (Attribute.GetCustomAttribute(window.GetType(), typeof(ImuguiWindowAttribute)) is not
-                ImuguiWindowAttribute attr)
+            var attr = Attribute.GetCustomAttribute(window.GetType(), typeof(ImuguiWindowAttribute)) as ImuguiWindowAttribute;
+            if (null == attr)
             {
                 throw new ImuguiException();
             }
