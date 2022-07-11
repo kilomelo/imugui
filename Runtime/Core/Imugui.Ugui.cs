@@ -13,7 +13,7 @@ namespace imugui.runtime
         // limit complexity of single window
         private const int WindowStructureDepthLimit = 8;
         private DrawingHandler _drawingHandler;
-        internal const float ImuguiWindowDefaultScale = 0.002f;
+        public const float ImuguiWindowDefaultScale = 0.002f;
         public Transform ImuguiRoot
         {
             get

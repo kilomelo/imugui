@@ -30,18 +30,18 @@ namespace imugui.runtime
         }
     }
     
-    internal sealed class GUILayout
+    public sealed class GUILayout
     {
-        internal const float DefaultLineHeight = 36f;
-        internal const float DefaultIndentationWidth = 40f;
-        internal const float DefaultPadding = 8f;
-        internal const float DefaultSpacing = 2f;
+        public const float DefaultLineHeight = 36f;
+        public const float DefaultIndentationWidth = 40f;
+        public const float DefaultPadding = 8f;
+        public const float DefaultSpacing = 2f;
 
         /// <summary>
         ///   <para>Option passed to a control to give it an absolute width.</para>
         /// </summary>
         /// <param name="width"></param>
-        internal static GUILayoutOption Width(float width) =>
+        public static GUILayoutOption Width(float width) =>
             new GUILayoutOption(GUILayoutOption.Type.fixedWidth, (object) width);
 
         /// <summary>
@@ -49,14 +49,14 @@ namespace imugui.runtime
         /// </para>
         ///       </summary>
         /// <param name="minWidth"></param>
-        internal static GUILayoutOption MinWidth(float minWidth) =>
+        public static GUILayoutOption MinWidth(float minWidth) =>
             new GUILayoutOption(GUILayoutOption.Type.minWidth, (object) minWidth);
 
         /// <summary>
         ///   <para>Option passed to a control to specify a maximum width.</para>
         /// </summary>
         /// <param name="maxWidth"></param>
-        internal static GUILayoutOption MaxWidth(float maxWidth) =>
+        public static GUILayoutOption MaxWidth(float maxWidth) =>
             new GUILayoutOption(GUILayoutOption.Type.maxWidth, (object) maxWidth);
 
         /// <summary>
