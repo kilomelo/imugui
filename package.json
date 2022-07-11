@@ -1,0 +1,22 @@
+{
+  "name": "com.kilomelo.imugui",
+  "displayName": "Imugui",
+  "version": "0.0.1",
+  "author": {
+    "name": "KiloMelo",
+    "email": "weichuyoucai@gmail.com",
+    "url": "https://kilomelo.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kilomelo/imugui.git"
+  },
+  "unity": "2021.3",
+  "description": "Immediate Mode GUI Using Unity GUI",
+  "keywords": [
+    "GUI",
+    "Development"
+  ],
+  "type": "tool",
+  "dependencies": {}
+}
