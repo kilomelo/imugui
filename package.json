@@ -8,7 +8,7 @@
     "url": "https://kilomelo.com"
   },
   "repository": {
-    "type": "git",
+    "type": "git",  
     "url": "https://github.com/kilomelo/imugui.git"
   },
   "unity": "2021.3",
@@ -18,5 +18,7 @@
     "Development"
   ],
   "type": "tool",
-  "dependencies": {}
+  "dependencies": {
+    "com.unity.textmeshpro": "3.0.0"
+  }
 }
