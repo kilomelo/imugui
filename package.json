@@ -1,7 +1,7 @@
 {
   "name": "com.kilomelo.imugui",
   "displayName": "Imugui",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": {
     "name": "KiloMelo",
     "email": "weichuyoucai@gmail.com",
@@ -20,6 +20,7 @@
   "type": "tool",
   "dependencies": {
     "com.unity.textmeshpro": "3.0.0",
-    "com.unity.ugui": "1.0.0"
+    "com.unity.ugui": "1.0.0",
+    "com.unity.xr.interaction.toolkit": "1.0.0-pre.4"
   }
 }
