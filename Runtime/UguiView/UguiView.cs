@@ -27,6 +27,8 @@ namespace imugui.runtime
         // key: layoutElement, value: reset default layout options action
         private Dictionary<LayoutElement, Action> _resetDefaultLayoutOptionsAction = new Dictionary<LayoutElement, Action>();
 
+
+        private float _scale = 1f;
         public bool CanvasEnabled
         {
             get => _rootCanvas.enabled;
@@ -72,8 +74,9 @@ namespace imugui.runtime
             }
             _elements.Clear();
         }
-        private void Init()
+        public void Init(float scale)
         {
+            _scale = scale;
             // todo size and anchor
         }
 
@@ -81,6 +84,7 @@ namespace imugui.runtime
         {
             _rootTrans.position = trans.position;
             _rootTrans.rotation = trans.rotation;
+            _rootTrans.localScale = _scale * trans.localScale;
         }
 
         #region add ui component

@@ -6,12 +6,12 @@ namespace imugui.runtime
     public partial class Imugui
     {
         private readonly Dictionary<IImuguiWindow, bool> AddedWindows = new Dictionary<IImuguiWindow, bool>();
-        public void AddWindow(IImuguiWindow window, EAnchorMode anchorMode, Vector2 size, float scale, Vector2 offset, string style)
+        public void AddWindow(IImuguiWindow window, EAnchorMode anchorMode, Vector2 size, float scale, Vector2 offset, string style, Vector3 transScale)
         {
             if (AddedWindows.ContainsKey(window))
                 throw new ImuguiException();
             AddedWindows.Add(window, false);
-            CreateUgui(window, anchorMode, size, scale, offset, style);
+            CreateUgui(window, anchorMode, size, scale, offset, style, transScale);
         }
         public void RemoveWindow(IImuguiWindow window)
         {

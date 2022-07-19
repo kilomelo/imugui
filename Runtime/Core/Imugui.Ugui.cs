@@ -38,11 +38,11 @@ namespace imugui.runtime
             CenterBottom,
             RightBottom,
         }
-        private void CreateUgui(IImuguiWindow window, EAnchorMode anchorMode, Vector2 size, float scale, Vector2 offset, string style)
+        private void CreateUgui(IImuguiWindow window, EAnchorMode anchorMode, Vector2 size, float scale, Vector2 offset, string style, Vector3 transScale)
         {
             if (UguiViews.ContainsKey(window))
                 throw new ImuguiException();
-            var newUguiView = CreateUguiWindow(anchorMode, size, scale, offset, style);
+            var newUguiView = CreateUguiWindow(anchorMode, size, scale, offset, style, transScale);
             UguiViews.Add(window, newUguiView);
         }
         private void DestroyUgui(IImuguiWindow window)
@@ -62,15 +62,17 @@ namespace imugui.runtime
             uguiView.CanvasEnabled = active;
         }
 
-        private UguiView CreateUguiWindow(EAnchorMode anchorMode, Vector2 size, float scale, Vector2 offset, string style)
+        private UguiView CreateUguiWindow(EAnchorMode anchorMode, Vector2 size, float scale, Vector2 offset, string style, Vector3 transScale)
         {
             var prefabPath = string.IsNullOrEmpty(style) ? ImuguiComponent.Instance.Skin.Canvas : style;
             var root = Object.Instantiate(Resources.Load(prefabPath)) as GameObject;
             var rectTrans = root.transform as RectTransform; 
             root.transform.SetParent(ImuguiRoot);
             rectTrans.sizeDelta = size;
-            rectTrans.localScale = Vector3.one * scale;
-            return root.GetComponent<UguiView>();
+            rectTrans.localScale = scale * transScale;
+            var uguiView = root.GetComponent<UguiView>();
+            uguiView.Init(scale);
+            return uguiView;
         }
 
         #region internal draw commands, called between BeginImugui() and EndImugui

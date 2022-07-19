@@ -21,14 +21,14 @@ namespace imugui.runtime
             _imugui = new Imugui();
         }
 
-        public void AddWindow(IImuguiWindow window)
+        public void AddWindow(IImuguiWindow window, Vector3 transScale)
         {
             var attr = Attribute.GetCustomAttribute(window.GetType(), typeof(ImuguiWindowAttribute)) as ImuguiWindowAttribute;
             if (null == attr)
             {
                 throw new ImuguiException();
             }
-            _imugui.AddWindow(window, attr.AnchorMode, attr.Size, attr.Scale, attr.Offset, attr.Style);
+            _imugui.AddWindow(window, attr.AnchorMode, attr.Size, attr.Scale, attr.Offset, attr.Style, transScale);
         }
         
         public void EnableWindow(IImuguiWindow window)
