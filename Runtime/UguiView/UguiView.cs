@@ -15,6 +15,7 @@ namespace imugui.runtime
     {
         [SerializeField] private Transform _rootTrans;
         [SerializeField] private Canvas _rootCanvas;
+        public float LerpSpeed = 20f;
 
         public float Width => (_rootTrans as RectTransform).sizeDelta.x;
         public float Height => (_rootTrans as RectTransform).sizeDelta.y;
@@ -82,8 +83,10 @@ namespace imugui.runtime
 
         public void SyncTrans(Transform trans)
         {
-            _rootTrans.position = trans.position;
-            _rootTrans.rotation = trans.rotation;
+            // _rootTrans.position = trans.position;
+            // _rootTrans.rotation = trans.rotation;
+            _rootTrans.position = Vector3.Lerp(_rootTrans.position, trans.position, Time.deltaTime * LerpSpeed);
+            _rootTrans.rotation = Quaternion.Slerp(_rootTrans.rotation, trans.rotation, Time.deltaTime * LerpSpeed);
             _rootTrans.localScale = _scale * trans.lossyScale;
         }
 
