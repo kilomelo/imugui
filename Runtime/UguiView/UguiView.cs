@@ -15,7 +15,7 @@ namespace imugui.runtime
     {
         [SerializeField] private Transform _rootTrans;
         [SerializeField] private Canvas _rootCanvas;
-        public float LerpSpeed = 20f;
+        public float LerpSpeed = 10f;
 
         public float Width => (_rootTrans as RectTransform).sizeDelta.x;
         public float Height => (_rootTrans as RectTransform).sizeDelta.y;

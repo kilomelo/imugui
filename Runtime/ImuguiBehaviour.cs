@@ -36,6 +36,13 @@ namespace imugui.runtime
             ImuguiComponent.Instance.SyncTrans(this, transform);
         }
 
+        protected virtual void OnPreRender()
+        {
+            if (!_inited) return;
+            if (!_enabled) return;
+            ImuguiComponent.Instance.SyncTrans(this, transform);
+        }
+
         public virtual void OnImu()
         {
         
