@@ -10,7 +10,7 @@ namespace imugui.runtime
         private bool _enabled;
         protected virtual void Init()
         {
-            ImuguiComponent.Instance.AddWindow(this, transform.localScale);
+            ImuguiComponent.Instance.AddWindow(this, transform.lossyScale);
             _inited = true;
         }
 

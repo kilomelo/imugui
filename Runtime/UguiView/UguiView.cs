@@ -84,7 +84,7 @@ namespace imugui.runtime
         {
             _rootTrans.position = trans.position;
             _rootTrans.rotation = trans.rotation;
-            _rootTrans.localScale = _scale * trans.localScale;
+            _rootTrans.localScale = _scale * trans.lossyScale;
         }
 
         #region add ui component
